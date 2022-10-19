@@ -1,0 +1,30 @@
+#container
+{
+    background: transparent;
+    width: 1088px;
+    border-radius: 10px;
+    height: 544px;
+}
+
+button, #slctcolor, #fonts {
+    width: 150px;
+    height: 40px;
+    border: 0px;
+    background: #656565;
+    color: white;
+}
+
+#text
+{
+    height: 400px;
+    width: 900px;
+    background: black;
+    color: white;
+    font-size: 2em;
+    font-weight: 100;
+}
+
+body { background: #000000; }
+
+ul li { display: inline-block; margin-right: 10px; }
+

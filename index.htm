@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="style.css">
+        <title>TextArea</title>
+    </head>
+
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+        <div id="container">
+            <ul>
+                <li><button id="boldfont"><b>B</b></button></li>
+                <li><button id="italicfont"><i>i</i></button></li>
+                <li><button id="underlinefont"><u>U</u></button></li>
+
+                
+                <li>
+                    <select id="fonts">
+                        <option selectedcolor="selected">Arial</option>
+                        <option>Calibry</option>
+                        <option>Times New Roman</option>
+                        <option>Franklin Gothic</option>
+                    </select>
+                </li>
+
+                <li>
+                    <select id="slctcolor">
+                        <option selectedcolor="selected">white</option>
+                        <option>red</option>
+                        <option>yellow</option>
+                        <option>green</option>
+                        <option>orange</option>
+                        <option>blue</option>
+                        <option>hotpink</option>
+                    </select>
+                </li>
+            </ul>
+
+            <div id="textA">
+                <textarea id="text" rows="10" cols="100"></textarea>
+            </div>
+            
+        </div>
+    
+        <script>         
+            $(() => {
+                
+                const boldButton = $("#boldfont")
+                const italicButton = $("#italicfont")
+                const underlineButton = $("#underlinefont")
+
+                const scolor = $("#slctcolor")
+
+                const fonts = $("#fonts")
+
+                const textarea = $("#text")
+
+                let bool_bold,bool_italic,bool_underline = false
+
+                boldButton.click(function()
+                {
+                    bool_bold = !bool_bold
+                    let style = (bool_bold) ? 'bold' : '100'
+                    textarea.css('font-weight', `${style}`)
+                })
+
+                italicButton.click(function() 
+                {
+                    bool_italic = !bool_italic
+                    let style = (bool_italic) ? 'italic' : 'normal'
+                    textarea.css('font-style', `${style}`)
+                })
+
+                underlineButton.click(function() 
+                {
+                    bool_underline = !bool_underline
+                    let style = (bool_underline) ? 'underline' : 'none' 
+                    textarea.css('text-decoration', `${style}`)
+                })
+
+                scolor.change(function()
+                {
+                    textarea.css('color', `${$(this).children('option:selected').val()}`)
+                })
+
+                fonts.change(function()
+                {
+                    textarea.css('font-family', `${$(this).children('option:selected').val()}`)
+                })
+            }) 
+
+        </script>
+
+    </body>
+
+</html>
